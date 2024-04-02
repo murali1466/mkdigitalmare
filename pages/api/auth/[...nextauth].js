@@ -22,8 +22,8 @@ export default NextAuth({
     maxAge: 2 * 24 * 60 * 60,
   },
  callbacks : {
-  async redirect(){
-    return '/dashboard'
+  async redirect({url,baseUrl}){
+    return url;
   },
   async jwt({token, user,account, profile}) {
     return token;
