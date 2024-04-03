@@ -62,7 +62,13 @@ function Home() {
                 .required("The password field is required"),
             })}
             onSubmit={(values) => {
-              signIn('credentials',values);
+              const credential = {
+                email: values.email,
+                password: values.password,
+                redirect: true,
+                callbackUrl: '/'
+              };
+              signIn('credentials',credential);
             }}
           >
             {({
@@ -144,7 +150,7 @@ export async function getServerSideProps(context){
     return {
       redirect: {
         permanent: false,
-        destination: '/dashboard'
+        destination: '/demo'
       }
     }
   }
