@@ -23,7 +23,7 @@ export default NextAuth({
   },
  callbacks : {
   async redirect({url,baseUrl}){
-    return url;
+    return baseUrl;
   },
   async jwt({token, user,account, profile}) {
     return token;
